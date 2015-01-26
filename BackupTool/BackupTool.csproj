@@ -113,8 +113,6 @@
     <Resource Include="Images\Icons8-Windows-8-Military-Fighter-Jet.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\DriveTest.png" />
-    <Resource Include="Images\fol.png" />
     <Resource Include="Images\folder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
