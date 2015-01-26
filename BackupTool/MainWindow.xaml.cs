@@ -53,7 +53,7 @@ namespace BackupTool
             int result = Environment.TickCount & Int32.MaxValue;
             string textOut = "";
 
-            //get locations from registry
+            //get locations from registry 
             string backupPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "BackupPath");
             string savedGames = RegistryManipulator.ReadRegistry(baseRegistryKey, dCSBackupToolSubKey, "SavedGames");
             string dcsWorld = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "DCS World");
