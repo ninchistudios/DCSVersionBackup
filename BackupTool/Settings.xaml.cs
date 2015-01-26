@@ -31,7 +31,7 @@ namespace BackupTool
             this.usersBackupPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "BackupPath");
             if (this.usersBackupPath == null)
             {
-                BackupLocationText.Text = "Enter a backup location";
+                BackupLocationText.Text = "Select a backup location";
             }
             else
             {
@@ -84,7 +84,7 @@ namespace BackupTool
             this.usersJsgmePath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "Jsgme");
             if (this.usersJsgmePath == null)
             {
-                JsgmeText.ToolTip = "Enter path for JSGME folder if your using one";
+                JsgmeText.ToolTip = "Select path for JSGME folder if your using one";
             }
             else 
             {
