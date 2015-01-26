@@ -13,23 +13,50 @@
                 <ColumnDefinition Width="36*"/>
                 <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
-            <TextBox Name="BackupLocationText" Grid.Column="1" Height="20" Margin="10,26,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-            <Button Name="BackupLocation_Button" Grid.Column="2" Margin="15,26,0,170"  Height="20" Width="20" Click="BackupLocation_Button_Click" RenderTransformOrigin="0.55,2.2">
+
+            <Label Content="Helios Profiles: " Margin="0,98,0,0" VerticalAlignment="Top" Height="26"/>
+            <Label Content="JSGME: " Margin="0,123,0,0" VerticalAlignment="Top" Height="26"/>
+            <Label Content="Backup Location: " Margin="0,23,0,0" VerticalAlignment="Top" Height="26"/>
+            <Label Content="Saved Games: " Margin="0,48,0,0" VerticalAlignment="Top" Height="26"/>
+            <Label Content="DCS World: " Margin="0,73,0,0" VerticalAlignment="Top" Height="26"/>
+
+            <TextBox Name="BackupLocationText" Grid.Column="1" Height="20" Margin="10,26,25,0" 
+                     TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="HeliosText" Grid.Column="1" Height="20" Margin="10,101,25,0" 
+                     TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="JsgmeText" Grid.Column="1" Height="20" Margin="10,126,25,0"  
+                     TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <TextBox Name="savedGamesText" Grid.Column="1" Height="20" Margin="10,51,25,0" 
+                     TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <TextBox Name="DCSWorldText" Grid.Column="1" Height="20" Margin="10,76,25,0" 
+                     TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+
+            <Button Content="Set" Grid.Column="1" HorizontalAlignment="Left" Margin="213,196,0,0" 
+                    VerticalAlignment="Top" Width="75" Click="Set_Click" Height="20" Grid.ColumnSpan="3"/>
+            <Button Content="Close Settings" Grid.Column="1" HorizontalAlignment="Left" Margin="118,196,0,0" 
+                    VerticalAlignment="Top" Width="93" Click="CloseSettings_Click" Height="20"/>
+
+            <Button x:Name="BackupLocation_Button" Grid.Column="2" Margin="15,26,0,170"  Height="20" Width="20" 
+                    RenderTransformOrigin="0.55,2.2" Click="BackupLocation_Button_Click">
                 <Image Source="images\folder.png"></Image>
             </Button>
-            <Label Content="Backup Location: " Margin="0,23,0,0" VerticalAlignment="Top" Height="26"/>
-            <Button Content="Set" Grid.Column="1" HorizontalAlignment="Left" Margin="213,196,0,0" VerticalAlignment="Top" Width="75" Click="Set_Click" Height="20" Grid.ColumnSpan="3"/>
-            <Button Content="Close Settings" Grid.Column="1" HorizontalAlignment="Left" Margin="136,196,0,0" VerticalAlignment="Top" Width="75" Click="CloseSettings_Click" Height="20"/>
-            <TextBox Name="savedGames" Grid.Column="1" Height="20" Margin="10,51,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-            <Button x:Name="SavedGames_Button" Grid.Column="2" Margin="15,51,0,145"  Height="20" Width="20" Click="SavedGames_Click" RenderTransformOrigin="0.55,2.2">
+            <Button x:Name="SavedGames_Button" Grid.Column="2" Margin="15,51,0,145"  Height="20" Width="20" 
+                    RenderTransformOrigin="0.55,2.2" Click="SavedGames_Click">
                 <Image Source="Images/folder.png"/>
             </Button>
-            <Label Content="Saved Games: " Margin="0,48,0,0" VerticalAlignment="Top" Height="26"/>
-            <TextBox Name="DCSWorldText" Grid.Column="1" Height="20" Margin="10,76,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-            <Label Content="DCS World: " Margin="0,74,0,0" VerticalAlignment="Top" Height="26"/>
-            <Button x:Name="DCSWorld_Button" Grid.Column="2" Margin="15,76,0,120"  Height="20" Width="20" RenderTransformOrigin="0.55,2.2"  Click="DCSWorld_Click">
+            <Button x:Name="DCSWorld_Button" Grid.Column="2" Margin="15,76,0,120"  Height="20" Width="20" 
+                    RenderTransformOrigin="0.55,2.2"  Click="DCSWorld_Click">
                 <Image Source="Images/folder.png"/>
             </Button>
+            <Button x:Name="Helios_Button" Grid.Column="2" Margin="15,101,0,95"  Height="20" Width="20" 
+                    RenderTransformOrigin="0.55,2.2"  Click="Helios_Click">
+                <Image Source="Images/folder.png"/>
+            </Button>
+            <Button x:Name="Jsgme_Button" Grid.Column="2" Margin="15,126,0,70"  Height="20" 
+                    RenderTransformOrigin="0.55,2.2"  Click="Jsgme_Click">
+                <Image Source="Images/folder.png"/>
+            </Button>
+
         </Grid>
     </Grid>
 </Window>

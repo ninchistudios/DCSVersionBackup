@@ -9,18 +9,15 @@ namespace BackupTool
     /// </summary>
     public partial class Settings : Window
     {
-        private string DCSBackupToolsubKey = "SOFTWARE\\DCSBackupTool\\Settings";
-        private string EDPathsubKey = "SOFTWARE\\Eagle Dynamics\\DCS World";
         private RegistryKey baseRegistryKey = Registry.CurrentUser;
-        private string userBackupPath;
-        private string userHomePath;
-        private string userSavedGames;
+        private string dCSBackupToolSubKey = "SOFTWARE\\DCSBackupTool\\Settings";
+        private string eDPathSubKey = "SOFTWARE\\Eagle Dynamics\\DCS World";
+        private string usersBackupPath;
+        private string usersHomePath;
+        private string usersSavedGames;
         private string usersDCSworldPath;
-
-        //todo
-        //@"d:\users\admin\documents\Helios", //helios folder
-        //@"F:\DCS\program\DCS World", //dcs world folder
-        //@"d:\DCS_JSGME"};  //jsgme folder n
+        private string usersHeliosPath;
+        private string usersJsgmePath;
 
         public Settings()
         {
@@ -31,40 +28,37 @@ namespace BackupTool
         private void GetSettingsValues()
         {
             //get backup location
-            this.userBackupPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.DCSBackupToolsubKey, "BackupPath");
-            if (this.userBackupPath == null)
+            this.usersBackupPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "BackupPath");
+            if (this.usersBackupPath == null)
             {
                 BackupLocationText.Text = "Enter a backup location";
             }
             else
             {
-                BackupLocationText.Text = this.userBackupPath;
+                BackupLocationText.Text = this.usersBackupPath;
             }
 
             //get saved games
-            this.userSavedGames = RegistryManipulator.ReadRegistry(baseRegistryKey, DCSBackupToolsubKey, "SavedGames");
-            if (this.userSavedGames == null)
+            this.usersSavedGames = RegistryManipulator.ReadRegistry(baseRegistryKey, dCSBackupToolSubKey, "SavedGames");
+            if (this.usersSavedGames == null)
             {
-                userHomePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-                string dcsSavedGames = userHomePath + "\\Saved Games\\DCS";
-                this.userSavedGames = dcsSavedGames;
-                savedGames.Text = dcsSavedGames;
+                this.usersHomePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                string dcsSavedGames = this.usersHomePath + "\\Saved Games\\DCS";
+                this.usersSavedGames = dcsSavedGames;
+                savedGamesText.Text = dcsSavedGames;
             }
             else
             {
-                savedGames.Text = this.userSavedGames;
+                savedGamesText.Text = this.usersSavedGames;
             }
 
-            //get dcsWorld /// redo this causing exception to do
-            //my setting
-            this.usersDCSworldPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.DCSBackupToolsubKey, "DCS World");
-
+            //get dcsWorld location my setting first if in registry
+            this.usersDCSworldPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "DCS World");
             if (this.usersDCSworldPath == null)
             {
                 //get eagle dynamics setting
-                this.usersDCSworldPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.EDPathsubKey, "Path");
+                this.usersDCSworldPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.eDPathSubKey, "Path");
             }
-
             if (this.usersDCSworldPath != null)
             {
                 DCSWorldText.Text = this.usersDCSworldPath;
@@ -73,14 +67,46 @@ namespace BackupTool
             {
                 DCSWorldText.Text = "Can not find DCS. Enter path to DCS";
             }
+
+            //get helios path
+            this.usersHeliosPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "Helios");
+            if (this.usersHeliosPath == null)
+            {
+                //usual helios path
+                HeliosText.Text = "If installed choose location";
+                HeliosText.ToolTip = "Usual path is " + this.usersHomePath + "\\Documents\\Helios";
+            }
+            else
+            { 
+                HeliosText.Text = this.usersHeliosPath;
+            }
+            //get jsgme path
+            this.usersJsgmePath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "Jsgme");
+            if (this.usersJsgmePath == null)
+            {
+                JsgmeText.ToolTip = "Enter path for JSGME folder if your using one";
+            }
+            else 
+            {
+                JsgmeText.Text = this.usersJsgmePath;
+            }
         }
 
         private void BackupLocation_Button_Click(object sender, RoutedEventArgs e)
         {
-            this.userBackupPath = GetPathFromUser();
-            if(this.userBackupPath != "")
+            this.usersBackupPath = GetPathFromUser();
+            if(this.usersBackupPath != "")
             { 
-                BackupLocationText.Text = this.userBackupPath;
+                BackupLocationText.Text = this.usersBackupPath;
+            }
+        }
+
+        private void Helios_Click(object sender, RoutedEventArgs e)
+        {
+            this.usersHeliosPath = GetPathFromUser();
+            if (this.usersHeliosPath != "")
+            {
+                HeliosText.Text = this.usersHeliosPath;
             }
         }
 
@@ -98,25 +124,12 @@ namespace BackupTool
             return folderPath;
         }
 
-        private void Set_Click(object sender, RoutedEventArgs e)
-        {
-            RegistryManipulator.WriteRegistry(baseRegistryKey, DCSBackupToolsubKey, "BackupPath", this.userBackupPath);
-            RegistryManipulator.WriteRegistry(baseRegistryKey, DCSBackupToolsubKey, "SavedGames", this.userSavedGames);
-            RegistryManipulator.WriteRegistry(baseRegistryKey, DCSBackupToolsubKey, "DCS World", this.usersDCSworldPath);
-            this.Close();
-        }
-
-        private void CloseSettings_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private void SavedGames_Click(object sender, RoutedEventArgs e)
         {
-            this.userSavedGames = GetPathFromUser();
-            if (this.userSavedGames != "")
+            this.usersSavedGames = GetPathFromUser();
+            if (this.usersSavedGames != "")
             {
-                savedGames.Text = this.userSavedGames;
+                savedGamesText.Text = this.usersSavedGames;
             }
         }
 
@@ -129,6 +142,29 @@ namespace BackupTool
             }
         }
 
-    }
+        private void Jsgme_Click(object sender, RoutedEventArgs e)
+        {
+            this.usersJsgmePath = GetPathFromUser();
+            if (this.usersJsgmePath != "")
+            {
+                JsgmeText.Text = this.usersJsgmePath;
+            }
+        }
 
+        private void Set_Click(object sender, RoutedEventArgs e)
+        {
+            RegistryManipulator.WriteRegistry(baseRegistryKey, dCSBackupToolSubKey, "BackupPath", this.usersBackupPath);
+            RegistryManipulator.WriteRegistry(baseRegistryKey, dCSBackupToolSubKey, "SavedGames", this.usersSavedGames);
+            RegistryManipulator.WriteRegistry(baseRegistryKey, dCSBackupToolSubKey, "DCS World", this.usersDCSworldPath);
+            RegistryManipulator.WriteRegistry(baseRegistryKey, dCSBackupToolSubKey, "Helios", this.usersHeliosPath);
+            RegistryManipulator.WriteRegistry(baseRegistryKey, dCSBackupToolSubKey, "Jsgme", this.usersJsgmePath);
+            this.Close();
+        }
+
+        private void CloseSettings_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+    }
 }
