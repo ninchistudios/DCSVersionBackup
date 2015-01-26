@@ -117,12 +117,6 @@
     <Resource Include="Images\fol.png" />
     <Resource Include="Images\folder.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="New Text Document.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\MiG-21_v1.0.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

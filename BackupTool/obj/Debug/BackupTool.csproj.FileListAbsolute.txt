@@ -57,3 +57,15 @@ C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\BackupTool.cs
 C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\bin\Debug\BackupTool.exe.config
 C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\BackupTool.exe
 C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\BackupTool.pdb
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\bin\Debug\BackupTool.exe
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\bin\Debug\BackupTool.pdb
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\BackupTool.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\MainWindow.baml
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\Settings.baml
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\MainWindow.g.cs
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\Settings.g.cs
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\App.g.cs
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\BackupTool_MarkupCompile.cache
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\BackupTool.g.resources
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\BackupTool.Properties.Resources.resources
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\BackupTool.csproj.GenerateResource.Cache

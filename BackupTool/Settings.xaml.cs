@@ -56,22 +56,31 @@ namespace BackupTool
             }
 
             //get dcsWorld /// redo this causing exception to do
-            this.usersDCSworldPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.usersDCSworldPath, "Path");
+            //my setting
+            this.usersDCSworldPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.DCSBackupToolsubKey, "DCS World");
+
             if (this.usersDCSworldPath == null)
             {
-                this.usersDCSworldPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.EDPathsubKey, "Path");      
-                DCSWorldText.Text = this.usersDCSworldPath;
+                //get eagle dynamics setting
+                this.usersDCSworldPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.EDPathsubKey, "Path");
             }
 
-
+            if (this.usersDCSworldPath != null)
+            {
+                DCSWorldText.Text = this.usersDCSworldPath;
+            }
+            else
+            {
+                DCSWorldText.Text = "Can not find DCS. Enter path to DCS";
+            }
         }
 
         private void BackupLocation_Button_Click(object sender, RoutedEventArgs e)
         {
-            userBackupPath = GetPathFromUser();
-            if(userBackupPath != "")
+            this.userBackupPath = GetPathFromUser();
+            if(this.userBackupPath != "")
             { 
-                BackupLocationText.Text = userBackupPath;
+                BackupLocationText.Text = this.userBackupPath;
             }
         }
 
@@ -94,6 +103,7 @@ namespace BackupTool
             RegistryManipulator.WriteRegistry(baseRegistryKey, DCSBackupToolsubKey, "BackupPath", this.userBackupPath);
             RegistryManipulator.WriteRegistry(baseRegistryKey, DCSBackupToolsubKey, "SavedGames", this.userSavedGames);
             RegistryManipulator.WriteRegistry(baseRegistryKey, DCSBackupToolsubKey, "DCS World", this.usersDCSworldPath);
+            this.Close();
         }
 
         private void CloseSettings_Click(object sender, RoutedEventArgs e)
@@ -103,25 +113,20 @@ namespace BackupTool
 
         private void SavedGames_Click(object sender, RoutedEventArgs e)
         {
-            userSavedGames = GetPathFromUser();
-            if (userSavedGames != "")
+            this.userSavedGames = GetPathFromUser();
+            if (this.userSavedGames != "")
             {
-                savedGames.Text = userSavedGames;
-            }
-        }
-
-        private void Save_Click(object sender, RoutedEventArgs e)
-        {
-            userSavedGames = GetPathFromUser();
-            if (userSavedGames != "")
-            {
-                savedGames.Text = userSavedGames;
+                savedGames.Text = this.userSavedGames;
             }
         }
 
         private void DCSWorld_Click(object sender, RoutedEventArgs e)
         {
-
+            this.usersDCSworldPath = GetPathFromUser();
+            if (this.usersDCSworldPath != "")
+            {
+                DCSWorldText.Text = this.usersDCSworldPath;
+            }
         }
 
     }
