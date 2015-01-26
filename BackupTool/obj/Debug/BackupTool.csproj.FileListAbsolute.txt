@@ -1,0 +1,56 @@
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\bin\Debug\BackupTool.exe.config
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\bin\Debug\BackupTool.exe
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\bin\Debug\BackupTool.pdb
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\BackupTool.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\MainWindow.baml
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\MainWindow.g.cs
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\App.g.cs
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\BackupTool_MarkupCompile.cache
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\BackupTool.g.resources
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\BackupTool.Properties.Resources.resources
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\BackupTool.csproj.GenerateResource.Cache
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\BackupTool.exe
+c:\users\admin\documents\visual studio 2012\Projects\BackupTool\BackupTool\obj\Debug\BackupTool.pdb
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\bin\Debug\BackupTool.exe.config
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\BackupTool.exe
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\BackupTool.pdb
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\bin\Debug\BackupTool.exe
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\bin\Debug\BackupTool.pdb
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\BackupTool.csprojResolveAssemblyReference.cache
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\MainWindow.baml
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\MainWindow.g.cs
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\App.g.cs
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\BackupTool_MarkupCompile.cache
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\BackupTool.g.resources
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\BackupTool.Properties.Resources.resources
+C:\Users\admin\Source\Test\DCSBackup\BackupTool\obj\Debug\BackupTool.csproj.GenerateResource.Cache
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\bin\Debug\BackupTool.exe.config
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\BackupTool.exe
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\BackupTool.pdb
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\bin\Debug\BackupTool.exe
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\bin\Debug\BackupTool.pdb
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\BackupTool.csprojResolveAssemblyReference.cache
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\MainWindow.baml
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\MainWindow.g.cs
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\App.g.cs
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\BackupTool_MarkupCompile.cache
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\BackupTool.g.resources
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\BackupTool.Properties.Resources.resources
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\BackupTool.csproj.GenerateResource.Cache
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\Settings.baml
+C:\Users\admin\Source\Repos\DCSBackup\BackupTool\obj\Debug\Settings.g.cs
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\bin\Debug\BackupTool.exe.config
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\BackupTool.exe
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\BackupTool.pdb
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\bin\Debug\BackupTool.exe
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\bin\Debug\BackupTool.pdb
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\BackupTool.csprojResolveAssemblyReference.cache
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\MainWindow.baml
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\Settings.baml
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\MainWindow.g.cs
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\Settings.g.cs
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\App.g.cs
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\BackupTool_MarkupCompile.cache
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\BackupTool.g.resources
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\BackupTool.Properties.Resources.resources
+C:\Users\admin\Documents\GitHub\DCSBackupTool\BackupTool\obj\Debug\BackupTool.csproj.GenerateResource.Cache

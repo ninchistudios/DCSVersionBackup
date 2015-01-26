@@ -1,0 +1,35 @@
+﻿<Window x:Class="BackupTool.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                Title="Settings" Height="264.925" Width="416.045" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="Images\A10.jpg"></ImageBrush>
+    </Window.Background>
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="216" Margin="10,10,0,0" VerticalAlignment="Top" Width="390">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="105*"/>
+                <ColumnDefinition Width="255*"/>
+                <ColumnDefinition Width="36*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="BackupLocationText" Grid.Column="1" Height="20" Margin="10,26,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <Button Name="BackupLocation_Button" Grid.Column="2" Margin="15,26,0,170"  Height="20" Width="20" Click="BackupLocation_Button_Click" RenderTransformOrigin="0.55,2.2">
+                <Image Source="images\folder.png"></Image>
+            </Button>
+            <Label Content="Backup Location: " Margin="0,23,0,0" VerticalAlignment="Top" Height="26"/>
+            <Button Content="Set" Grid.Column="1" HorizontalAlignment="Left" Margin="213,196,0,0" VerticalAlignment="Top" Width="75" Click="Set_Click" Height="20" Grid.ColumnSpan="3"/>
+            <Button Content="Close Settings" Grid.Column="1" HorizontalAlignment="Left" Margin="136,196,0,0" VerticalAlignment="Top" Width="75" Click="CloseSettings_Click" Height="20"/>
+            <TextBox Name="savedGames" Grid.Column="1" Height="20" Margin="10,51,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <Button x:Name="SavedGames_Button" Grid.Column="2" Margin="15,51,0,145"  Height="20" Width="20" Click="SavedGames_Click" RenderTransformOrigin="0.55,2.2">
+                <Image Source="Images/folder.png"/>
+            </Button>
+            <Label Content="Saved Games: " Margin="0,48,0,0" VerticalAlignment="Top" Height="26"/>
+            <TextBox Name="DCSWorldText" Grid.Column="1" Height="20" Margin="10,76,25,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <Label Content="DCS World: " Margin="0,74,0,0" VerticalAlignment="Top" Height="26"/>
+            <Button x:Name="DCSWorld_Button" Grid.Column="2" Margin="15,76,0,120"  Height="20" Width="20" RenderTransformOrigin="0.55,2.2"  Click="DCSWorld_Click">
+                <Image Source="Images/folder.png"/>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
