@@ -35,8 +35,7 @@ namespace BackupTool
             {
                 try
                 {
-                    // If the RegistryKey exists I get its value
-                    // or null is returned.
+                    // If the RegistryKey exists I get its value or null is returned.
                     return (string)sk1.GetValue(KeyName.ToUpper());
                 }
                 catch (Exception e)

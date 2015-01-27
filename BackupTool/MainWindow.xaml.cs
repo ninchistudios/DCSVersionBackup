@@ -1,38 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Threading;
 using System.IO;
-using System.Windows.Forms;
 using Microsoft.Win32;
 
 namespace BackupTool
 {
      public partial class MainWindow : Window
     {
-        //fields
         private string dCSBackupToolSubKey = "SOFTWARE\\DCSBackupTool\\Settings";
         private RegistryKey baseRegistryKey = Registry.CurrentUser;
-
-        //old hardcoded below to remove once this class sorted out==================
-        //private const string backupFolder = @"e:\DCSBU";
-        private string[] dcsFolders = new string[] { 
-        @"d:\Users\admin\Saved Games\DCS", //dcsfolder   
-        @"d:\users\admin\documents\Helios", //helios folder
-        @"F:\DCS\program\DCS World", //dcs world folder
-        @"d:\DCS_JSGME"};  //jsgme folder n
-         //=========================================================================
            
         public MainWindow()
         {
@@ -41,65 +21,70 @@ namespace BackupTool
 
         private void Backup_Click(object sender, RoutedEventArgs e)
         {
-            // 2nd thread to run our copy so UI wont hang
-            Thread trd = new Thread(new ThreadStart(ThreadCopyFolders));
+            Thread trd = new Thread(new ThreadStart(ThreadBackupFolders));
             trd.IsBackground = true;
             trd.Start();
         }
 
-        private void ThreadCopyFolders()
+        private void ThreadBackupFolders()
         {
             //start time
+            string backupLocations = null;
             int result = Environment.TickCount & Int32.MaxValue;
-            string textOut = "";
-
-            //get locations from registry 
-            string backupPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "BackupPath");
-            string savedGames = RegistryManipulator.ReadRegistry(baseRegistryKey, dCSBackupToolSubKey, "SavedGames");
-            string dcsWorld = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "DCS World");
-            string helios = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "Helios");
-            string jsgme = RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "Jsgme");
+            StringBuilder textOut = new StringBuilder();
+            textOut.Append("Starting Backup");
 
             try
             {
-                string backupLocations;
-                //check destination exists
+                string backupPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, 
+                        this.dCSBackupToolSubKey, "BackupPath");
+
                 if (!Directory.Exists(backupPath))
                 {
-                    throw new ApplicationException(backupPath + " does not exist");
+                    throw new ApplicationException("Backup location " + backupPath + " does not exist");
                 }
-                foreach (string fol in this.dcsFolders)
+
+                List<string> foldersToBackup = new List<string>(); 
+                foldersToBackup.Add(RegistryManipulator.ReadRegistry(baseRegistryKey, dCSBackupToolSubKey, "SavedGames"));
+                foldersToBackup.Add(RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "DCS World"));
+                foldersToBackup.Add(RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "Helios"));
+                foldersToBackup.Add(RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "Jsgme"));
+
+                foreach (string fol in foldersToBackup)
                 {
-                    //check each folder exists before copying
-                    if (Directory.Exists(fol))
+                    if (fol != null)
                     {
-                        //get the name of the folder from the original path
-                        string dirName = new DirectoryInfo(fol).Name;
-                        //append the directory name to the backuplocation
-                        backupLocations = backupPath + "\\" + dirName;
-                        //check for existing backup folder if so delete
-                        if (Directory.Exists(backupLocations))
+                        //check each folder exists before copying
+                        if (Directory.Exists(fol))
                         {
-                            //If you have the specified directory open in File Explorer, 
-                            //the Delete method may not be able to delete it
-                            Directory.Delete(backupLocations,true);
-                            textOut = backupLocations + " deleted\n";
-                            WriteToTextBlock(textOut);
+                            //get the name of the folder from the original path
+                            string dirName = new DirectoryInfo(fol).Name;
+                            //append the directory name to the backuplocation
+                            backupLocations = backupPath + "\\" + dirName;
+                            //check for existing backup folder if so delete
+                            if (Directory.Exists(backupLocations))
+                            {
+                                //If you have the specified directory open in File Explorer 
+                                //the Delete method may not be able to delete it
+                                Directory.Delete(backupLocations, true);
+                                textOut.Append(backupLocations + " deleted\n");
+                                WriteToTextBlock(textOut.ToString());
+                            }
+                            CopyDirectory(fol, backupLocations, true);
+                            textOut.Append(fol + " backed up\n");
+                            WriteToTextBlock(textOut.ToString());
                         }
-                        CopyDirectory(fol, backupLocations, true);
-                        textOut += fol + " backed up\n";
-                        WriteToTextBlock(textOut);
-                    }
-                    else
-                    {
-                        throw new ApplicationException(fol + " does not exist");
+                        else
+                        {
+                            throw new ApplicationException(fol + " does not exist");
+                        }
                     }
                 }
                 //finish time
                 int result2 = Environment.TickCount & Int32.MaxValue;
                 string timeTaken = ((result2 - result) / 1000).ToString();
-                textOut += "Copy took " + timeTaken + " seconds";
-                WriteToTextBlock(textOut);           
+                textOut.Append("Copy took " + timeTaken + " seconds");
+                WriteToTextBlock(textOut.ToString());           
             }
             catch (Exception oError)
             {
@@ -116,11 +101,6 @@ namespace BackupTool
         {
             Settings mySet = new Settings();
             mySet.Show();
-        }
-
-        private void Restore_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void WriteToTextBlock(string text)
@@ -159,7 +139,7 @@ namespace BackupTool
                     ret = false;
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 ret = false;
             }

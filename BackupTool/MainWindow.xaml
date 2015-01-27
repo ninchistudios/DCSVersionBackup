@@ -13,7 +13,7 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Content="Backup DCS World" HorizontalAlignment="Left" Margin="119,10,0,0" VerticalAlignment="Top" 
+        <Button Content="Backup DCS World" HorizontalAlignment="Left" Margin="268,10,0,0" VerticalAlignment="Top" 
                 Width="114" Background="#FFE0F4F9" BorderBrush="Black" Click="Backup_Click" Height="20"/>
         <Label x:Name="lblOutput" HorizontalAlignment="Left" Margin="20,35,0,0" VerticalAlignment="Top" Height="165" 
                Width="362"  BorderThickness="1" Foreground="White" BorderBrush="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontSize="14">
@@ -22,9 +22,6 @@
         <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="318,205,0,0" 
                 VerticalAlignment="Top" Width="64" Background="#FFE0F4F9" BorderBrush="Black" 
                 Click="Exit_Click" Height="20" RenderTransformOrigin="3.473,-0.182"/>
-        <Button Content="Restore DCS World" HorizontalAlignment="Left" Margin="268,10,0,0" 
-                VerticalAlignment="Top" Width="114" Background="#FFE0F4F9" BorderBrush="Black" 
-                Click="Restore_Click" Height="20"/>
         <Button Content="Settings" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" Width="60" Background="#FFE0F4F9" BorderBrush="Black" Click="Options_Click" Height="20"/>
 
     </Grid>
