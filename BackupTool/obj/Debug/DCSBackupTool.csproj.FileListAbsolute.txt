@@ -1,0 +1,14 @@
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\MainWindow.baml
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\Settings.baml
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\MainWindow.g.cs
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\Settings.g.cs
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\App.g.cs
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\DCSBackupTool.Properties.Resources.resources
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\DCSBackupTool.csproj.GenerateResource.Cache
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\bin\Debug\DCSBackupTool.exe.config
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\bin\Debug\DCSBackupTool.exe
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\bin\Debug\DCSBackupTool.pdb
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\DCSBackupTool_MarkupCompile.cache
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\DCSBackupTool.g.resources
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\DCSBackupTool.exe
+C:\Users\admin\Documents\GitHub\DCSVersionBackup\BackupTool\obj\Debug\DCSBackupTool.pdb

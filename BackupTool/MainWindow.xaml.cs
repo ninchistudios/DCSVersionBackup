@@ -7,7 +7,7 @@ using System.Threading;
 using System.IO;
 using Microsoft.Win32;
 
-namespace BackupTool
+namespace DCSBackupTool
 {
      public partial class MainWindow : Window
     {
@@ -32,7 +32,8 @@ namespace BackupTool
             string backupLocations = null;
             int result = Environment.TickCount & Int32.MaxValue;
             StringBuilder textOut = new StringBuilder();
-            textOut.Append("Starting Backup");
+            textOut.Append("Starting Backup\n");
+            SetProgressBar(true);
 
             try
             {
@@ -76,11 +77,14 @@ namespace BackupTool
                         }
                         else
                         {
+                            SetProgressBar(false);
                             throw new ApplicationException(fol + " does not exist");
                         }
                     }
                 }
+
                 //finish time
+                SetProgressBar(false);
                 int result2 = Environment.TickCount & Int32.MaxValue;
                 string timeTaken = ((result2 - result) / 1000).ToString();
                 textOut.Append("Copy took " + timeTaken + " seconds");
@@ -107,6 +111,12 @@ namespace BackupTool
         {
             System.Windows.Application.Current.Dispatcher.BeginInvoke(
                 new Action(() => this.outputTextblock.Text = text));
+        }
+
+         private void SetProgressBar(bool b)
+        {
+            System.Windows.Application.Current.Dispatcher.BeginInvoke(
+               new Action(() => this.pbStatus.IsIndeterminate = b));
         }
 
         private static bool CopyDirectory(string SourcePath, string DestinationPath, bool overwriteexisting)

@@ -2,11 +2,8 @@
 using System.Windows;
 using Microsoft.Win32;
 
-namespace BackupTool
+namespace DCSBackupTool
 {
-    /// <summary>
-    /// Get the settings from the user and set in registry keys
-    /// </summary>
     public partial class Settings : Window
     {
         private RegistryKey baseRegistryKey = Registry.CurrentUser;
@@ -165,6 +162,5 @@ namespace BackupTool
         {
             this.Close();
         }
-
     }
 }

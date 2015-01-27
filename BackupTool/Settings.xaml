@@ -1,4 +1,4 @@
-﻿<Window x:Class="BackupTool.Settings"
+﻿<Window x:Class="DCSBackupTool.Settings"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 Title="Settings" Height="264.925" Width="416.045" ResizeMode="NoResize">
@@ -56,7 +56,6 @@
                     RenderTransformOrigin="0.55,2.2" ToolTip="Select Jsgme Folder" Click="Jsgme_Click">
                 <Image Source="Images/folder.png"/>
             </Button>
-
         </Grid>
     </Grid>
 </Window>

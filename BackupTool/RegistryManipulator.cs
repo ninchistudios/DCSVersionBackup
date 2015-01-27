@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Win32;
 
-namespace BackupTool
+namespace DCSBackupTool
 {
     class RegistryManipulator
     {
@@ -11,7 +11,7 @@ namespace BackupTool
             {
                 RegistryKey rk = baseRegistryKey;
                 RegistryKey sk1 = rk.CreateSubKey(subKey);
-                sk1.SetValue(KeyName.ToUpper(), Value);      // Save the value
+                sk1.SetValue(KeyName.ToUpper(), Value);   // Save the value
                 return true;
             }
             catch (Exception e)
