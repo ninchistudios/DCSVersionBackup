@@ -5,7 +5,8 @@ namespace DCSBackupTool
 {
     class RegistryManipulator
     {
-        public static bool WriteRegistry(RegistryKey baseRegistryKey, string subKey,string KeyName, object Value)
+        public static bool WriteRegistry(RegistryKey baseRegistryKey, string subKey,
+                string KeyName, object Value)
         {
             try
             {
