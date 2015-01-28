@@ -42,6 +42,7 @@ namespace DCSBackupTool
 
                 if (!Directory.Exists(backupPath))
                 {
+                    SetProgressBar(false);
                     throw new ApplicationException("Backup location " + backupPath + " does not exist");
                 }
 

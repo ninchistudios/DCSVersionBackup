@@ -1,7 +1,7 @@
 ﻿<Window x:Class="DCSBackupTool.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Backup DCS" Height="264.925" Width="416.045" 
+        Title="Backup DCS" Height="269.417" Width="416.045" 
         Icon="Images\Fighter-Jet.ico" 
         ResizeMode="NoResize">
     <Window.Background>
@@ -14,8 +14,8 @@
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Content="Backup DCS World" HorizontalAlignment="Left" Margin="268,10,0,0" VerticalAlignment="Top" 
-                Width="114" Background="#FFE0F4F9" BorderBrush="Black" Click="Backup_Click" Height="20"/>
+        <Button Content="Backup DCS World" HorizontalAlignment="Left" Margin="268,7,0,0" VerticalAlignment="Top" 
+                Width="114" Background="#FFE0F4F9" BorderBrush="Black" Click="Backup_Click" Height="23"/>
         <Label x:Name="lblOutput" HorizontalAlignment="Left" Margin="20,35,0,0" VerticalAlignment="Top" Height="165" 
                Width="362"  BorderThickness="1" Foreground="White" BorderBrush=
                "{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontSize="14">
@@ -23,10 +23,10 @@
         </Label>
         <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="318,204,0,0" 
                 VerticalAlignment="Top" Width="64" Background="#FFE0F4F9" BorderBrush="Black" 
-                Click="Exit_Click" Height="20" RenderTransformOrigin="3.473,-0.182"/>
-        <Button Content="Settings" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" 
-                Width="60" Background="#FFE0F4F9" BorderBrush="Black" Click="Options_Click" Height="20"/>
-        <ProgressBar HorizontalAlignment="Left" Height="15" Margin="20,206,0,0" VerticalAlignment="Top" 
+                Click="Exit_Click" Height="23" RenderTransformOrigin="3.473,-0.182"/>
+        <Button Content="Settings" HorizontalAlignment="Left" Margin="20,7,0,0" VerticalAlignment="Top" 
+                Width="60" Background="#FFE0F4F9" BorderBrush="Black" Click="Options_Click" Height="23"/>
+        <ProgressBar HorizontalAlignment="Left" Height="15" Margin="20,208,0,0" VerticalAlignment="Top" 
                      Width="293" Minimum="0" Maximum="100" Name="pbStatus" IsIndeterminate="False"/>
     </Grid>
 </Window>
