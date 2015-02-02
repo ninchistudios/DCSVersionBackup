@@ -16,11 +16,9 @@
 
         <Button Content="Backup DCS World" HorizontalAlignment="Left" Margin="268,7,0,0" VerticalAlignment="Top" 
                 Width="114" Background="#FFE0F4F9" BorderBrush="Black" Click="Backup_Click" Height="23"/>
-        <Label x:Name="lblOutput" HorizontalAlignment="Left" Margin="20,35,0,0" VerticalAlignment="Top" Height="165" 
-               Width="362"  BorderThickness="1" Foreground="White" BorderBrush=
-               "{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" FontSize="14">
-            <TextBlock x:Name="outputTextblock" TextWrapping="Wrap" Text="Choose options above" Height="155" Width="352"/>
-        </Label>
+
+        <TextBlock x:Name="outputTextblock" TextWrapping="Wrap" Text="Choose options above" Height="155" Width="352" 
+                FontSize="14" Foreground="White" />
         <Button x:Name="ExitButton" Content="Exit" HorizontalAlignment="Left" Margin="318,204,0,0" 
                 VerticalAlignment="Top" Width="64" Background="#FFE0F4F9" BorderBrush="Black" 
                 Click="Exit_Click" Height="23" RenderTransformOrigin="3.473,-0.182"/>
@@ -28,5 +26,6 @@
                 Width="60" Background="#FFE0F4F9" BorderBrush="Black" Click="Options_Click" Height="23"/>
         <ProgressBar HorizontalAlignment="Left" Height="15" Margin="20,208,0,0" VerticalAlignment="Top" 
                      Width="293" Minimum="0" Maximum="100" Name="pbStatus" IsIndeterminate="False"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="164" Margin="20,35,0,0" VerticalAlignment="Top" Width="362"/>
     </Grid>
 </Window>
