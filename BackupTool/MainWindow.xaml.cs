@@ -9,11 +9,11 @@ using Microsoft.Win32;
 
 namespace DCSBackupTool
 {
-     public partial class MainWindow : Window
+    public partial class MainWindow : Window
     {
         private string dCSBackupToolSubKey = "SOFTWARE\\DCSBackupTool\\Settings";
         private RegistryKey baseRegistryKey = Registry.CurrentUser;
-           
+
         public MainWindow()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace DCSBackupTool
 
             try
             {
-                string backupPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey, 
+                string backupPath = RegistryManipulator.ReadRegistry(this.baseRegistryKey,
                         this.dCSBackupToolSubKey, "BackupPath");
 
                 if (!Directory.Exists(backupPath))
@@ -46,7 +46,7 @@ namespace DCSBackupTool
                     throw new ApplicationException("Backup location " + backupPath + " does not exist");
                 }
 
-                List<string> foldersToBackup = new List<string>(); 
+                List<string> foldersToBackup = new List<string>();
                 foldersToBackup.Add(RegistryManipulator.ReadRegistry(baseRegistryKey, dCSBackupToolSubKey, "SavedGames"));
                 foldersToBackup.Add(RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "DCS World"));
                 foldersToBackup.Add(RegistryManipulator.ReadRegistry(this.baseRegistryKey, this.dCSBackupToolSubKey, "Helios"));
@@ -89,12 +89,53 @@ namespace DCSBackupTool
                 int result2 = Environment.TickCount & Int32.MaxValue;
                 string timeTaken = ((result2 - result) / 1000).ToString();
                 textOut.Append("Copy took " + timeTaken + " seconds");
-                WriteToTextBlock(textOut.ToString());           
+                WriteToTextBlock(textOut.ToString());
             }
             catch (Exception oError)
             {
                 WriteToTextBlock(oError.Message);
-            }     
+            }
+        }
+
+        private static bool CopyDirectory(string SourcePath, string DestinationPath, bool overwriteexisting)
+        {
+            bool ret = true;
+            try
+            {
+                SourcePath = SourcePath.EndsWith(@"\") ? SourcePath : SourcePath + @"\";
+                DestinationPath = DestinationPath.EndsWith(@"\") ? DestinationPath : DestinationPath + @"\";
+
+                if (Directory.Exists(SourcePath))
+                {
+                    if (Directory.Exists(DestinationPath) == false)
+                    {
+                        Directory.CreateDirectory(DestinationPath);
+                    }
+
+                    foreach (string file in Directory.GetFiles(SourcePath))
+                    {
+                        FileInfo flinfo = new FileInfo(file);
+                        flinfo.CopyTo(DestinationPath + flinfo.Name, overwriteexisting);
+                    }
+                    foreach (string directory in Directory.GetDirectories(SourcePath))
+                    {
+                        DirectoryInfo dirInfo = new DirectoryInfo(directory);
+                        if (CopyDirectory(directory, DestinationPath + dirInfo.Name, overwriteexisting) == false)
+                        {
+                            ret = false;
+                        }
+                    }
+                }
+                else
+                {
+                    ret = false;
+                }
+            }
+            catch
+            {
+                ret = false;
+            }
+            return ret;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -114,47 +155,10 @@ namespace DCSBackupTool
                 new Action(() => this.outputTextblock.Text = text));
         }
 
-         private void SetProgressBar(bool b)
+        private void SetProgressBar(bool b)
         {
             System.Windows.Application.Current.Dispatcher.BeginInvoke(
                new Action(() => this.pbStatus.IsIndeterminate = b));
-        }
-
-        private static bool CopyDirectory(string SourcePath, string DestinationPath, bool overwriteexisting)
-        {
-            bool ret = true;
-            try
-            {
-                SourcePath = SourcePath.EndsWith(@"\") ? SourcePath : SourcePath + @"\";
-                DestinationPath = DestinationPath.EndsWith(@"\") ? DestinationPath : DestinationPath + @"\";
-
-                if (Directory.Exists(SourcePath))
-                {
-                    if (Directory.Exists(DestinationPath) == false)
-                        Directory.CreateDirectory(DestinationPath);
-
-                    foreach (string fls in Directory.GetFiles(SourcePath))
-                    {
-                        FileInfo flinfo = new FileInfo(fls);
-                        flinfo.CopyTo(DestinationPath + flinfo.Name, overwriteexisting);
-                    }
-                    foreach (string drs in Directory.GetDirectories(SourcePath))
-                    {
-                        DirectoryInfo drinfo = new DirectoryInfo(drs);
-                        if (CopyDirectory(drs, DestinationPath + drinfo.Name, overwriteexisting) == false)
-                            ret = false;
-                    }
-                }
-                else
-                {
-                    ret = false;
-                }
-            }
-            catch
-            {
-                ret = false;
-            }
-            return ret;
         }
     }
 }
