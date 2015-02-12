@@ -6,4 +6,4 @@ Handy if an error occurs just replace the original folders with the folders you 
 Layout is awful, just slapped together..May add restore functionality later... though for the few times ive had to copy them back it may not be worth it. May add voice attack and Trackir backup into it later too just to save time.
 
 TO Do.. 
-need to use bindings to textblock and textboxes, sort out UI
+need to do it properly really, sort out bindings etc and sort out UI.. then again it works just to save time doing it manually.
