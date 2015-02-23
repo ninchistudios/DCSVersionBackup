@@ -43,5 +43,5 @@ Temporary Items
 .apdisk
 
 # binaries
-bin
-obj
+bin/
+obj/
